@@ -3,6 +3,7 @@ import java.util.*;
 public class Q3 {
 
     public static ArrayList<Item> divisibleKnapsack(int capacity, List<Item> items) {
+
         // Sort items by their value-to-weight ratio in descending order
         items.sort((a, b) -> Double.compare(b.ratio, a.ratio));
 
@@ -65,6 +66,7 @@ class Item {
         this.profit = profit;
         this.ratio = (double) profit / weight;
     }
+    @Override
     public String toString(){
         return String.format("p: %s; w: %s",profit,weight);
     }
