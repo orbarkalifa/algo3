@@ -20,8 +20,8 @@ public class Q4 {
 
         while (arrayList.size() > 1) {
             // Extract the two smallest arrays
-            int[] first = arrayList.remove(0);
-            int[] second = arrayList.remove(0);
+            int[] first = arrayList.removeFirst();
+            int[] second = arrayList.removeFirst();
 
             // Merge them
             int[] merged = merge(first, second);
