@@ -27,9 +27,7 @@ public class Q4 {
             int[] merged = merge(first, second);
 
             // Insert the merged array back into the sorted list
-            int index = Collections.binarySearch(arrayList, merged, Comparator.comparingInt(a -> a.length));
-            if (index < 0) index = -index - 1;
-            arrayList.add(index, merged);
+            insertSorted(arrayList, merged);
         }
 
         // The final array left in the list is the fully merged array
@@ -57,5 +55,13 @@ public class Q4 {
         }
 
         return merged;
+    }
+
+    private static void insertSorted(List<int[]> list, int[] array) {
+        int i = 0;
+        while (i < list.size() && list.get(i).length < array.length) {
+            i++;
+        }
+        list.add(i, array);
     }
 }
