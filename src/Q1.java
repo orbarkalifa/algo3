@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Q1 {
     public static void main(String[] args) {
@@ -57,6 +54,8 @@ public class Q1 {
     }
 
     static int[] calcSumOfColums(int[][] G) {
+        printMatrix(G);
+        System.out.println();
         int[] sumOf1 = new int[G.length];
         int counter = G.length - 1;
         while (counter >= 0) {
@@ -68,19 +67,24 @@ public class Q1 {
             }
             counter--;
         }
+        System.out.println(Arrays.toString(sumOf1));
         return sumOf1;
     }
 
     static int[] findIndexesPlace(int[] ints) {
         int counter = 0;
-        int[] indexes = new int[ints.length];
-        int[] temp = ints.clone();
-        Arrays.sort(temp);
+        int [] sorted =ints.clone();
+        int [] temp =new int[ints.length];
+        Arrays.sort(sorted);
 
+        int [] indexes= new int[ints.length];
+        for( int i=0;i< sorted.length;i++)
+            temp[i] = sorted[sorted.length-1-i];
 
-        for (int i = ints.length - 1; i > 0; i--) {
-            for (int anInt : ints) {
-                if (anInt == temp[i]) {
+        System.out.println(Arrays.toString(temp));
+        for (int anInt : temp){
+            for (int i = counter; i < ints.length; i++) {
+                if (anInt == ints[i]) {
                     indexes[counter] = i;
                     counter++;
                     break;
@@ -88,6 +92,8 @@ public class Q1 {
             }
 
         }
+        System.out.println(Arrays.toString(indexes));
+        System.out.println();
         return indexes;
     }
 
@@ -99,6 +105,8 @@ public class Q1 {
                 if (i == j) newG[i][j] = 1;
             }
         }
+        printMatrix(newG);
+        System.out.println();
         return newG;
     }
 
@@ -113,7 +121,7 @@ public class Q1 {
         for (int i = 1; i < maxR; i++) {
             for (int j = 0; j < maxR; j++) {
                 if (G[j][i] == 0) {
-                    maxR = Math.max(i, j);
+                    maxR = Math.min(i, j);
                 }
 
             }
