@@ -6,7 +6,7 @@ public class Q1_B {
 
     public static void main(String[] args) {
 
-        int[][][] graphs = genAllMat(4);
+        int[][][] graphs = genAllMat(3);
 
         for (int i = 0; i < graphs.length; i++) {
             System.out.println("Graph " + (i + 1) + ":");
