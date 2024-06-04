@@ -1,7 +1,6 @@
 // Java implementation of the approach
 import java.util.*;
-class FindClique
-{
+class FindClique {
     static int MAX = 100, n;
     // Stores the vertices
     static int []store = new int[MAX];
@@ -9,10 +8,8 @@ class FindClique
     static int [][]graph = new int[MAX][MAX];
     // Degree of the vertices
     static int []d = new int[MAX];
-    // Function to check if the given set of
-// vertices in store array is a clique or not
-    static boolean is_clique(int b)
-    {
+    // Function to check if the given set of  vertices in store array is a clique or not
+    static boolean is_clique(int b) {
         // Run a loop for all set of edges
         for (int i = 1; i < b; i++)
         {
@@ -23,20 +20,15 @@ class FindClique
         }
         return true;
     }
-    // Function to find all the sizes
-// of maximal cliques
-    static int maxCliques(int i, int l)
-    {
+    // Function to find all the sizes of maximal cliques
+    static int maxCliques(int i, int l) {
         // Maximal clique size
         int max_ = 0;
-        // Check if any vertices from i+1
-        // can be inserted
-        for (int j = i + 1; j <= n; j++)
-        {
+        // Check if any vertices from i+1 can be inserted
+        for (int j = i + 1; j <= n; j++) {
             // Add the vertex to store
             store[l] = j;
-            // If the graph is not a clique of size k then
-            // it cannot be a clique by adding another edge
+            // If the graph is not a clique of size k then it cannot be a clique by adding another edge
             if (is_clique(l + 1))
             {
                 // Update max
@@ -48,14 +40,12 @@ class FindClique
         return max_;
     }
     // Driver code
-    public static void main(String[] args)
-    {
-        int [][]edges = { { 1, 2 }, { 2, 3 }, { 3, 1 },
-                { 4, 3 }, { 4, 1 }, { 4, 2 } };
+    public static void main(String[] args) {
+        int [][]edges = { { 1, 3 }, { 2, 3 }, { 3, 1 },
+                { 3, 2 } };
         int size = edges.length;
         n = 4;
-        for (int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             graph[edges[i][0]][edges[i][1]] = 1;
             graph[edges[i][1]][edges[i][0]] = 1;
             d[edges[i][0]]++;
