@@ -53,7 +53,6 @@ public class Q1_D {
                 if(newG[j][i]==0){
                     maxR = Math.max(i,j);
                 }
-
             }
         }
 
